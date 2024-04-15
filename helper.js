@@ -41,12 +41,16 @@ const colorSelect = document.getElementById("color");
 const fontSelect = document.getElementById("font");
 
 viewCall.addEventListener("click", ()=>{
+    document.getElementById("maillot1").style.display = "none";
+    document.getElementById("maillot2").style.display = "none";
+    document.getElementById("firstContainer").style.border = "5px solid black";
+    document.getElementById("loadingfirst").style.display = "block";
     let fontName = document.getElementById("font").value;
     let fontColor = document.getElementById("color").value;
     let name = document.getElementById("nom").value;
     let num = document.getElementById("num").value;
     let imgName = document.getElementById("maillot").value;
-    fetch(`https://delta-basis-414205.ew.r.appspot.com/api/getFlockedShirt?name=${name}&num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
+    fetch(`http://localhost:8080/api/getFlockedShirt?name=${name}&num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
     .then((response) => response.arrayBuffer())
     .then(arrayBuffer => {
     const uint8Array = new Uint8Array(arrayBuffer);
@@ -55,7 +59,8 @@ viewCall.addEventListener("click", ()=>{
     const img = document.getElementById("maillot1");
     console.log(imageUrl);
     img.src = imageUrl;
-    document.getElementById("maillot1").style.border = "5px solid black";
+    document.getElementById("maillot1").style.display = "block";
+    document.getElementById("loadingfirst").style.display = "none";
   })
   .catch(error => console.error('Error fetching image:', error));
 
@@ -65,7 +70,10 @@ viewCall.addEventListener("click", ()=>{
   if (euro24indexes.includes(maillotSelect.selectedIndex)) {
     apicall = "getFlockedShirt2"
   }
-  fetch(`https://delta-basis-414205.ew.r.appspot.com/api/${apicall}?num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
+
+  document.getElementById("secondContainer").style.border = "5px solid black";
+  document.getElementById("loadingsecond").style.display = "block";
+  fetch(`http://localhost:8080/api/${apicall}?num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
     .then((response) => response.arrayBuffer())
     .then(arrayBuffer => {
     const uint8Array = new Uint8Array(arrayBuffer);
@@ -73,7 +81,8 @@ viewCall.addEventListener("click", ()=>{
     const imageUrl = URL.createObjectURL(blob);
     const img = document.getElementById("maillot2");
     img.src = imageUrl;
-    document.getElementById("maillot2").style.border = "5px solid black";
+    document.getElementById("maillot2").style.display = "block";
+    document.getElementById("loadingsecond").style.display = "none";
   })
   .catch(error => console.error('Error fetching image:', error));
 });
