@@ -1,5 +1,7 @@
 const filterButton = document.getElementById("viewFilter");
 const resultFilterContainer = document.querySelector(".container");
+const controller = new AbortController();
+
 
 filterButton.addEventListener("click", ()=>{
     let url = document.getElementById("url").value;
@@ -45,6 +47,7 @@ viewCall.addEventListener("click", ()=>{
 });
 
 function updateMaillot() {
+    controller.abort("New request launched");
     document.getElementById("maillot1").style.display = "none";
     document.getElementById("maillot2").style.display = "none";
     document.getElementById("firstContainer").style.border = "5px solid black";
