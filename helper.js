@@ -149,6 +149,7 @@ document.getElementById("switchoutlet").addEventListener("click", ()=>{
     document.getElementById("js-outlet").style.display = "block";
 });
 
+//goodmethod
 document.addEventListener("click", (e)=>{
     let numInput = document.getElementById("num");
     let nomInput = document.getElementById("nom");
