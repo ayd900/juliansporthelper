@@ -41,6 +41,10 @@ const colorSelect = document.getElementById("color");
 const fontSelect = document.getElementById("font");
 
 viewCall.addEventListener("click", ()=>{
+    updateMaillot();
+});
+
+function updateMaillot() {
     document.getElementById("maillot1").style.display = "none";
     document.getElementById("maillot2").style.display = "none";
     document.getElementById("firstContainer").style.border = "5px solid black";
@@ -51,41 +55,41 @@ viewCall.addEventListener("click", ()=>{
     let num = document.getElementById("num").value;
     let imgName = document.getElementById("maillot").value;
     fetch(`https://delta-basis-414205.ew.r.appspot.com/api/getFlockedShirt?name=${name}&num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
-    .then((response) => response.arrayBuffer())
-    .then(arrayBuffer => {
-    const uint8Array = new Uint8Array(arrayBuffer);
-    const blob = new Blob([uint8Array], { type: 'image/png' });
-    const imageUrl = URL.createObjectURL(blob);
-    const img = document.getElementById("maillot1");
-    console.log(imageUrl);
-    img.src = imageUrl;
-    document.getElementById("maillot1").style.display = "block";
-    document.getElementById("loadingfirst").style.display = "none";
-  })
-  .catch(error => console.error('Error fetching image:', error));
+        .then((response) => response.arrayBuffer())
+        .then(arrayBuffer => {
+            const uint8Array = new Uint8Array(arrayBuffer);
+            const blob = new Blob([uint8Array], { type: 'image/png' });
+            const imageUrl = URL.createObjectURL(blob);
+            const img = document.getElementById("maillot1");
+            console.log(imageUrl);
+            img.src = imageUrl;
+            document.getElementById("maillot1").style.display = "block";
+            document.getElementById("loadingfirst").style.display = "none";
+        })
+        .catch(error => console.error('Error fetching image:', error));
 
-  let apicall = "getFlockedShirt3";
-  let euro24indexes = [0, 1, 2, 3, 4, 5, 6];
+    let apicall = "getFlockedShirt3";
+    let euro24indexes = [0, 1, 2, 3, 4, 5, 6];
 
-  if (euro24indexes.includes(maillotSelect.selectedIndex)) {
-    apicall = "getFlockedShirt2"
-  }
+    if (euro24indexes.includes(maillotSelect.selectedIndex)) {
+        apicall = "getFlockedShirt2"
+    }
 
-  document.getElementById("secondContainer").style.border = "5px solid black";
-  document.getElementById("loadingsecond").style.display = "block";
-  fetch(`https://delta-basis-414205.ew.r.appspot.com/api/${apicall}?num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
-    .then((response) => response.arrayBuffer())
-    .then(arrayBuffer => {
-    const uint8Array = new Uint8Array(arrayBuffer);
-    const blob = new Blob([uint8Array], { type: 'image/png' });
-    const imageUrl = URL.createObjectURL(blob);
-    const img = document.getElementById("maillot2");
-    img.src = imageUrl;
-    document.getElementById("maillot2").style.display = "block";
-    document.getElementById("loadingsecond").style.display = "none";
-  })
-  .catch(error => console.error('Error fetching image:', error));
-});
+    document.getElementById("secondContainer").style.border = "5px solid black";
+    document.getElementById("loadingsecond").style.display = "block";
+    fetch(`https://delta-basis-414205.ew.r.appspot.com/api/${apicall}?num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
+        .then((response) => response.arrayBuffer())
+        .then(arrayBuffer => {
+            const uint8Array = new Uint8Array(arrayBuffer);
+            const blob = new Blob([uint8Array], { type: 'image/png' });
+            const imageUrl = URL.createObjectURL(blob);
+            const img = document.getElementById("maillot2");
+            img.src = imageUrl;
+            document.getElementById("maillot2").style.display = "block";
+            document.getElementById("loadingsecond").style.display = "none";
+        })
+        .catch(error => console.error('Error fetching image:', error));
+}
 
 maillotSelect.addEventListener("change", ()=>{
   const selectedValue = maillotSelect.value;
@@ -127,6 +131,7 @@ maillotSelect.addEventListener("change", ()=>{
       fontSelect.selectedIndex = 0;
       break;       
   }
+  updateMaillot();
 });
 
 document.getElementById("switchflock").addEventListener("click", ()=>{
