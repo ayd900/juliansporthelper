@@ -4,7 +4,7 @@
 
 .container {
     display: flex;
-    direction: row;
+    flex-direction: row;
     min-height: 165px;
     gap: 25px;
 }

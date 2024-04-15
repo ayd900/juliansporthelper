@@ -131,7 +131,10 @@ maillotSelect.addEventListener("change", ()=>{
       fontSelect.selectedIndex = 0;
       break;       
   }
-  updateMaillot();
+  if (document.getElementById("nom").value.length > 0 &&
+  document.getElementById("num").value.length > 0) {
+      updateMaillot();
+  }
 });
 
 document.getElementById("switchflock").addEventListener("click", ()=>{
