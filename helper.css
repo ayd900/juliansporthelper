@@ -1,0 +1,149 @@
+#flock-viewer {
+    display: none;
+}
+
+.container {
+    display: flex;
+    direction: row;
+    min-height: 165px;
+    gap: 25px;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#maillot1, #maillot2 {
+    max-width: 600px;
+    max-height: 600px;
+}
+
+img {
+    border-radius: 12px;
+}
+
+#imgcontainer {
+    display: flex;
+    gap: 20px;
+    max-width: 1250px;
+}
+
+label {
+    display: block;
+    min-height: 21.5px;
+    padding: 3px;
+    border-width: 1px;
+    margin-bottom: 4px;    
+}
+
+.inputsContainer, .labelsContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    gap: 10px;
+    min-height: auto;
+}
+
+.inputsContainer, .labelsContainer {
+    max-height: 18px;
+    min-height: 18px;
+    padding: 2px;
+    border: 1px;
+}
+
+#prefix {
+    max-width: 16px;
+}
+
+#tel {
+    max-width: 113px;
+}
+
+select {
+    border-width: 2px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.form input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+button {
+    margin-top: 25px;
+}
+
+#loading {
+    visibility: hidden;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container form {
+    max-width: calc(100% / 3); 
+    margin: 0 10px;
+    flex: 1 1 auto;
+}
+
+.container form:nth-child(3n+1) {
+    margin-left: 0; 
+}
+
+.container form:nth-child(3n) {
+    margin-right: 0;
+}
+
+.container form:nth-child(n+4):nth-child(3n+1) {
+    margin-left: 0; 
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container form {
+    max-width: calc(33.33% - 20px); /* Maximum of 3 forms per row with 20px gap */
+    margin: 0 10px 20px 10px; /* 20px bottom margin for gap between forms, 10px left and right margin */
+    flex: 1 1 auto;
+}
+
+.container form:nth-child(n+4):nth-child(3n+1) {
+    margin-left: 0; /* Remove left margin for the first form of every other row */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container form {
+    max-width: calc(33.33% - 20px); /* Maximum of 3 forms per row with 20px gap */
+    margin: 0 10px 20px 10px; /* 20px bottom margin for gap between forms, 10px left and right margin */
+    flex: 1 1 auto;
+}
+
+.container form:nth-child(n+4):nth-child(3n+1) {
+    margin-left: 0; /* Remove left margin for the first form of every other row */
+}
+
+.container:after {
+    content: ""; /* Create a pseudo-element */
+    flex: 1 1 auto; /* Fill remaining space */
+}
+
+.container form:last-child {
+    margin-right: auto; /* Push the last form all the way to the left */
+}

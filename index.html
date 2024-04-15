@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JulianSport Helper</title>
+    <link rel="stylesheet" href="helper.css">
+</head>
+<body>
+    <button id="switchoutlet">JS OUTLET</button>
+    <button id="switchflock">FLOCK VIEWER</button>
+    <div id="js-outlet">
+        <h1>JS OUTLET</h1>
+        <div class="form">
+            <label for="url">URL:</label>
+            <input type="text" name="url" id="url" placeholder="url"><br>
+            <label for="perc">%:</label>
+            <input type="text" name="perc" id="perc" placeholder="10,20,30,40...">
+            <button id="viewFilter">VIEW</button>
+        </div>
+        <h2 id="loading">LOADING...</h2>
+        <div class="container">
+    
+        </div>        
+    </div>
+    <div id="flock-viewer">
+        <h1>FLOCK VIEWER</h1>
+        <div class="container">
+            <div id="labelsContainer">
+                <label for="maillot">MAILLOT:</label>
+                <label for="nom">NOM:</label>
+                <label for="num">NUM:</label>
+                <label for="color">COLOR:</label>
+                <label for="font">FONT:</label>
+                <label for="prefix">TEL:</label>
+            </div>
+            <div class="inputsContainer">
+                <select name="maillot" id="maillot">
+                    <option value="belgique1">Belgique Away</option>
+                    <option value="belgique2">Belgique Home</option>
+                    <option value="argentine1">Argentine Home</option>
+                    <option value="allemagne1">Allemagne Away</option>
+                    <option value="allemagne2">Allemagne Home</option>
+                    <option value="espagne1">Espagne Away</option>
+                    <option value="espagne2">Espagne Home</option>
+                    <option value="rm1">Real Madrid Away</option>
+                    <option value="rm2">Real Madrid Home</option>
+                </select>
+                <input type="text" name="nom" id="nom" placeholder="BELLINGHAM" maxlength="10">
+                <input type="text" name="num" id="num" placeholder="5" maxlength="3">
+                <select name="color" id="color">
+                    <option value="1">Blanc</option>
+                    <option value="2">Noir</option>
+                    <option value="3">Doree</option>
+                    <option value="4">Jaune</option>
+                    <option value="5">Vert</option>
+                    <option value="6">Rouge</option>
+                    <option value="7">Bleu</option>
+                    <option value="8">Belgique Home</option>
+                    <option value="9">Espagne Away</option>
+                    <option value="10">Espagne Home</option>
+                </select>
+                <select name="font" id="font">
+                    <option value="Euro24">Euro24</option>
+                    <option value="GermanyEuroA">Euro24 Allemagne Away</option>
+                    <option value="GermanyEuro">Euro24 Allemagne Home</option>
+                    <option value="SpainEuro">Euro24 Espagne</option>
+                </select>
+                <div id="numberSelection">
+                    <input type="number" name="prefix" id="prefix" placeholder="32">
+                    <input type="text" name="tel" id="tel" placeholder="0488278857">                    
+                </div>
+            </div>
+        </div>
+        <button id="viewCall">VIEW</button>
+        <br>
+        <br>
+        <div id="imgcontainer">
+            <img src="" alt="" id="maillot1">
+            <img src="" alt="" id="maillot2">
+        </div>
+    </div>
+    <script src="helper.js"></script>
+</body>
+</html>
