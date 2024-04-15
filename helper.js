@@ -50,7 +50,7 @@ viewCall.addEventListener("click", ()=>{
     let name = document.getElementById("nom").value;
     let num = document.getElementById("num").value;
     let imgName = document.getElementById("maillot").value;
-    fetch(`http://localhost:8080/api/getFlockedShirt?name=${name}&num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
+    fetch(`https://delta-basis-414205.ew.r.appspot.com/api/getFlockedShirt?name=${name}&num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
     .then((response) => response.arrayBuffer())
     .then(arrayBuffer => {
     const uint8Array = new Uint8Array(arrayBuffer);
@@ -73,7 +73,7 @@ viewCall.addEventListener("click", ()=>{
 
   document.getElementById("secondContainer").style.border = "5px solid black";
   document.getElementById("loadingsecond").style.display = "block";
-  fetch(`http://localhost:8080/api/${apicall}?num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
+  fetch(`https://delta-basis-414205.ew.r.appspot.com/api/${apicall}?num=${num}&fontName=${fontName}&color=${fontColor}&imgName=${imgName}`)
     .then((response) => response.arrayBuffer())
     .then(arrayBuffer => {
     const uint8Array = new Uint8Array(arrayBuffer);
