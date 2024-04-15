@@ -47,8 +47,6 @@ viewCall.addEventListener("click", ()=>{
 });
 
 function updateMaillot() {
-    controller.abort("New request launched");
-    controller.abort("New request launched");
     document.getElementById("maillot1").style.display = "none";
     document.getElementById("maillot2").style.display = "none";
     document.getElementById("firstContainer").style.border = "5px solid black";
