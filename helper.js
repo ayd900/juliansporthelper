@@ -158,7 +158,8 @@ document.addEventListener("click", (e)=>{
         e.target !== maillotSelect &&
         e.target !== colorSelect &&
         e.target !== fontSelect &&
-        e.target !== document.getElementById("numberSelection") &&
+        e.target !== document.getElementById("prefix") &&
+        e.target !== document.getElementById("tel") &&
         e.target !== document.getElementById("switchoutlet") &&
         e.target !== document.getElementById("switchflock") &&
         document.getElementById("nom").value.length > 0 &&
