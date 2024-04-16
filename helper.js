@@ -153,6 +153,7 @@ document.getElementById("switchoutlet").addEventListener("click", ()=>{
 document.addEventListener("click", (e)=>{
     let numInput = document.getElementById("num");
     let nomInput = document.getElementById("nom");
+    console.log(e.target);
     if (e.target !== numInput &&
         e.target !== nomInput &&
         e.target !== maillotSelect &&
