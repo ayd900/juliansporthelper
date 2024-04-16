@@ -163,7 +163,8 @@ document.addEventListener("click", (e)=>{
         e.target !== document.getElementById("tel") &&
         e.target !== document.getElementById("switchoutlet") &&
         e.target !== document.getElementById("switchflock") &&
-        e.target !== document.querySelector("img") &&
+        e.target !== document.querySelectorAll("img")[0] &&
+        e.target !== document.querySelectorAll("img")[1] &&
         e.target !== document.getElementById("firstContainer") &&
         e.target !== document.getElementById("secondContainer") &&
         document.getElementById("nom").value.length > 0 &&
