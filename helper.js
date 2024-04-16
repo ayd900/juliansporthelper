@@ -1,8 +1,6 @@
 const filterButton = document.getElementById("viewFilter");
 const resultFilterContainer = document.querySelector(".container");
 let prevSelect = "belgique1";
-let prevSelect2 = null;
-
 
 filterButton.addEventListener("click", ()=>{
     let url = document.getElementById("url").value;
@@ -151,7 +149,6 @@ document.getElementById("switchoutlet").addEventListener("click", ()=>{
     document.getElementById("js-outlet").style.display = "block";
 });
 
-//goodmethod
 document.addEventListener("click", (e)=>{
     let numInput = document.getElementById("num");
     let nomInput = document.getElementById("nom");
@@ -173,3 +170,61 @@ document.addEventListener("click", (e)=>{
         updateMaillot();
     }
 })
+
+// PRINTER CODE
+
+const printer = new  epson.ePOSDevice();
+console.log(printer);
+
+const ipFirstAddress = "192.168.1.51";
+const ipSecondAddress = "192.168.1.60";
+const port = "8080";
+
+printer.connect(ipFirstAddress, port, connected, true);
+
+document.getElementById("printCall").addEventListener("click", ()=>{
+    printer.connect(ipSecondAddress, port, connected, true);
+})
+
+function connected(state) {
+    const deviceId = "local_printer";
+    const options = {'crypto' : false, 'buffer' : false};
+    document.getElementById("state").innerText = state;
+    if (state === "OK" || state === "SSL_CONNECT_OK") {
+        printer.createDevice(deviceId, printer.DEVICE_TYPE_DT, options, callback_createDevice);
+    } else {
+        document.getElementById("state").innerText = state + " ERROR";
+    }
+}
+
+let printerdevice = null;
+
+function callback_createDevice(deviceObj, errorCode) {
+    if (deviceObj == null) {
+        document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER";
+    }
+    printerdevice = deviceObj;
+
+    printerdevice.onreceive = function (response) {
+        if (response.success) {
+            document.getElementById("sucprint").innerText = "good print";
+            createData();
+        } else {
+            document.getElementById("sucprint").innerText = "failed print";
+        }
+    }
+}
+
+function createData() {
+    printerdevice.addTextAlign(printerdevice.ALIGN_CENTER);
+    printerdevice.addText("HELLO MOHAMED, HELLO CALOUUU, HELLO SOUHAIB, HELLO JULIAN SPORT");
+    send();
+}
+
+function send() {
+    if (printer.isConnected) {
+        printerdevice.send();
+    }
+}
+
+
