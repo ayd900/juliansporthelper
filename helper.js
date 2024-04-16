@@ -153,7 +153,12 @@ document.getElementById("switchoutlet").addEventListener("click", ()=>{
 document.addEventListener("click", (e)=>{
     let numInput = document.getElementById("num");
     let nomInput = document.getElementById("nom");
-    if (e.target !== numInput && e.target !== nomInput && document.getElementById("nom").value.length > 0 &&
+    if (e.target !== numInput &&
+        e.target !== nomInput &&
+        e.target !== maillotSelect &&
+        e.target !== colorSelect &&
+        e.target !== fontSelect &&
+        document.getElementById("nom").value.length > 0 &&
         document.getElementById("num").value.length > 0) {
         updateMaillot();
     }
