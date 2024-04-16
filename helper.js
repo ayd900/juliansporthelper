@@ -1,6 +1,7 @@
 const filterButton = document.getElementById("viewFilter");
 const resultFilterContainer = document.querySelector(".container");
-const controller = new AbortController();
+let prevSelect = "belgique1";
+let prevSelect2 = null;
 
 
 filterButton.addEventListener("click", ()=>{
@@ -63,7 +64,6 @@ function updateMaillot() {
             const blob = new Blob([uint8Array], { type: 'image/png' });
             const imageUrl = URL.createObjectURL(blob);
             const img = document.getElementById("maillot1");
-            console.log(imageUrl);
             img.src = imageUrl;
             document.getElementById("maillot1").style.display = "block";
             document.getElementById("loadingfirst").style.display = "none";
@@ -93,8 +93,10 @@ function updateMaillot() {
         .catch(error => console.error('Error fetching image:', error));
 }
 
-maillotSelect.addEventListener("change", ()=>{
+maillotSelect.addEventListener("change", (s)=>{
   const selectedValue = maillotSelect.value;
+  prevSelect2 = prevSelect;
+  prevSelect = selectedValue;
   switch(selectedValue) {
     case "belgique1":
       colorSelect.selectedIndex = 0;
@@ -134,7 +136,9 @@ maillotSelect.addEventListener("change", ()=>{
       break;       
   }
   if (document.getElementById("nom").value.length > 0 &&
-  document.getElementById("num").value.length > 0) {
+  document.getElementById("num").value.length > 0 &&
+  prevSelect !== selectedValue) {
+      prevSelect = selectedValue;
       updateMaillot();
   }
 });
@@ -153,7 +157,6 @@ document.getElementById("switchoutlet").addEventListener("click", ()=>{
 document.addEventListener("click", (e)=>{
     let numInput = document.getElementById("num");
     let nomInput = document.getElementById("nom");
-    console.log(e.target);
     if (e.target !== numInput &&
         e.target !== nomInput &&
         e.target !== maillotSelect &&
