@@ -95,8 +95,6 @@ function updateMaillot() {
 
 maillotSelect.addEventListener("change", (s)=>{
   const selectedValue = maillotSelect.value;
-  prevSelect2 = prevSelect;
-  prevSelect = selectedValue;
   switch(selectedValue) {
     case "belgique1":
       colorSelect.selectedIndex = 0;
