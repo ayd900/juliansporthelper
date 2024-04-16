@@ -158,6 +158,9 @@ document.addEventListener("click", (e)=>{
         e.target !== maillotSelect &&
         e.target !== colorSelect &&
         e.target !== fontSelect &&
+        e.target !== document.getElementById("numberSelection") &&
+        e.target !== document.getElementById("switchoutlet") &&
+        e.target !== document.getElementById("switchflock") &&
         document.getElementById("nom").value.length > 0 &&
         document.getElementById("num").value.length > 0) {
         updateMaillot();
