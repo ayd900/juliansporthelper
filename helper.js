@@ -189,19 +189,20 @@ document.getElementById("printCall").addEventListener("click", ()=>{
 })
 
 function connected(state) {
-    const deviceId = "network_printer_0001";
+    const deviceId = "local_printer";
     const options = {'crypto' : false, 'buffer' : false};
     document.getElementById("state").innerText = state;
     if (state === "OK" || state === "SSL_CONNECT_OK") {
         printer.createDevice(deviceId, printer.DEVICE_TYPE_DT, options, callback_createDevice);
     } else {
-        document.getElementById("state").innerText = state + " ERROR";
+        document.getElementById("state").innerText = state;
     }
 }
 
 let printerdevice = null;
 
 function callback_createDevice(deviceObj, errorCode) {
+    document.getElementById("extrainfo").innerText = "Device objecT: " + deviceObj + ". ErrorCode: " + errorCode;
     if (deviceObj == null) {
         document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER: " + errorCode;
     }
