@@ -36,6 +36,8 @@ filterButton.addEventListener("click", ()=>{
     document.getElementById("loading").innerText = "LOADING";
 });
 
+// fix commit
+
 const viewCall = document.getElementById("viewCall");
 const maillotSelect = document.getElementById("maillot");
 const colorSelect = document.getElementById("color");
