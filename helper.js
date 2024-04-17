@@ -1,3 +1,5 @@
+import * as epson from "./epos-2.27.0.js";
+
 const filterButton = document.getElementById("viewFilter");
 const resultFilterContainer = document.querySelector(".container");
 let prevSelect = "belgique1";
@@ -187,7 +189,7 @@ document.getElementById("printCall").addEventListener("click", ()=>{
 })
 
 function connected(state) {
-    const deviceId = "local_printer";
+    const deviceId = "network_printer_0001";
     const options = {'crypto' : false, 'buffer' : false};
     document.getElementById("state").innerText = state;
     if (state === "OK" || state === "SSL_CONNECT_OK") {
@@ -201,7 +203,7 @@ let printerdevice = null;
 
 function callback_createDevice(deviceObj, errorCode) {
     if (deviceObj == null) {
-        document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER";
+        document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER: " + errorCode;
     }
     printerdevice = deviceObj;
 
