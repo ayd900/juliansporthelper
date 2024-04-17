@@ -1,5 +1,3 @@
-import * as epson from "./epos-2.27.0.js";
-
 const filterButton = document.getElementById("viewFilter");
 const resultFilterContainer = document.querySelector(".container");
 let prevSelect = "belgique1";
