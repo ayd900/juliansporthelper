@@ -208,6 +208,7 @@ function callback_createDevice(deviceObj, errorCode) {
     } else {
         printerdevice = deviceObj;
         createData();
+        send();
     }
     printerdevice.onreceive = function (response) {
         if (response.success) {
@@ -221,7 +222,6 @@ function callback_createDevice(deviceObj, errorCode) {
 function createData() {
     printerdevice.addTextAlign(printerdevice.ALIGN_CENTER);
     printerdevice.addText("HELLO MOHAMED, HELLO CALOUUU, HELLO SOUHAIB, HELLO JULIAN SPORT");
-    send();
 }
 
 function send() {
