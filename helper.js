@@ -180,7 +180,7 @@ const printer = new  epson.ePOSDevice();
 const ipFirstAddress = "192.168.1.51";
 const ipSecondAddress = "192.168.1.60";
 const port = "8080";
-console.log("version5");
+console.log("version6");
 
 printer.connect(ipFirstAddress, port, connected, true);
 
@@ -220,7 +220,6 @@ function callback_createDevice(deviceObj, errorCode) {
 }
 
 function createData() {
-    printerdevice.addTextAlign(printerdevice.ALIGN_CENTER);
     printerdevice.addText("HELLO MOHAMED, HELLO CALOUUU, HELLO SOUHAIB, HELLO JULIAN SPORT\t");
 }
 
