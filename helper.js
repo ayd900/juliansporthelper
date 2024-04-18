@@ -177,14 +177,15 @@ document.addEventListener("click", (e)=>{
 
 const printer = new  epson.ePOSDevice();
 
-const ipFirstAddress = "192.168.1.51";
-const ipSecondAddress = "192.168.1.60";
+const ipSecondAddress = "192.168.1.51";
+const ipFirstAddress = "192.168.1.60";
 const port = "8080";
-console.log("version6");
 
-printer.connect(ipFirstAddress, port, connected, true);
+document.getElementById("printCall1").addEventListener("click", ()=>{
+    printer.connect(ipFirstAddress, port, connected, true);
+})
 
-document.getElementById("printCall").addEventListener("click", ()=>{
+document.getElementById("printCall2").addEventListener("click", ()=>{
     printer.connect(ipSecondAddress, port, connected, true);
 })
 
@@ -216,11 +217,30 @@ function callback_createDevice(deviceObj, errorCode) {
             "Success: " + response.success + ". Error Code: " + response.code + ". " +
             "Status: " + response.status + ". Battery: " + response.battery
             + ". JobID: " + response.printjobid;
+        printer.disconnect();
+        printer.deleteDevice(printerdevice, deleted);
     }
 }
 
+function deleted() {
+    console.log("successfully deleted");
+}
+
 function createData() {
-    printerdevice.addText("HELLO MOHAMED, HELLO CALOUUU, HELLO SOUHAIB, HELLO JULIAN SPORT\t");
+    printerdevice.textAlign(ALIGN_CENTER);
+    printerdevice.addText("JULIAN SPORT FLOCAGES");
+    printerdevice.textAlign(ALIGN_LEFT);
+    printerdevice.addHLine(0, 65535, LINE_THICK_DOUBLE);
+    printerdevice.addText("NOM: " + document.getElementById("nom").value);
+    printerdevice.addFeedLine(1);
+    printerdevice.addText("NUM: " + document.getElementById("num").value);
+    printerdevice.addFeedLine(1);
+    printerdevice.addText("COLOR: " + document.getElementById("color").value);
+    printerdevice.addFeedLine(1);
+    printerdevice.addText("POLICE: " + document.getElementById("font").value);
+    printerdevice.addFeedLine(1);
+    printerdevice.addText("TEL: " + document.getElementById("tel").value);
+    printerdevice.addCut(CUT_FEED);
 }
 
 function send() {
