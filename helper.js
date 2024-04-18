@@ -205,9 +205,10 @@ function callback_createDevice(deviceObj, errorCode) {
     document.getElementById("extrainfo").innerText = "Device objecT: " + deviceObj + ". ErrorCode: " + errorCode;
     if (deviceObj == null) {
         document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER: " + errorCode;
+    } else {
+        printerdevice = deviceObj;
+        createData();
     }
-    printerdevice = deviceObj;
-    createData();
     printerdevice.onreceive = function (response) {
         if (response.success) {
             document.getElementById("sucprint").innerText = "good print";
