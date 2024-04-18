@@ -221,6 +221,7 @@ function callback_createDevice(deviceObj, errorCode) {
             + ". JobID: " + response.printjobid;
         printer.disconnect();
         printer.deleteDevice(printerdevice, deleted);
+        alert(response);
     }
 }
 
@@ -229,10 +230,8 @@ function deleted() {
 }
 
 function createData() {
-    printerdevice.textAlign(ALIGN_CENTER);
     printerdevice.addText("JULIAN SPORT FLOCAGES");
-    printerdevice.textAlign(ALIGN_LEFT);
-    printerdevice.addHLine(0, 65535, LINE_THICK_DOUBLE);
+    printerdevice.addFeedLine(1);
     printerdevice.addText("NOM: " + document.getElementById("nom").value);
     printerdevice.addFeedLine(1);
     printerdevice.addText("NUM: " + document.getElementById("num").value);
