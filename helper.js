@@ -241,7 +241,6 @@ function createData() {
     printerdevice.addText("POLICE: " + document.getElementById("font").value);
     printerdevice.addFeedLine(1);
     printerdevice.addText("TEL: " + document.getElementById("tel").value);
-    printerdevice.addCut(CUT_FEED);
 }
 
 function send() {
