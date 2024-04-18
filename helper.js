@@ -183,10 +183,12 @@ const port = "8080";
 
 document.getElementById("printCall1").addEventListener("click", ()=>{
     printer.connect(ipFirstAddress, port, connected, true);
+    console.log("printer1 selected")
 })
 
 document.getElementById("printCall2").addEventListener("click", ()=>{
     printer.connect(ipSecondAddress, port, connected, true);
+    console.log("printer2 selected");
 })
 
 function connected(state) {
