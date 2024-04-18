@@ -175,6 +175,8 @@ document.addEventListener("click", (e)=>{
 
 // PRINTER CODE
 
+console.log("version 10");
+
 const printer = new  epson.ePOSDevice();
 
 const ipSecondAddress = "192.168.1.51";
@@ -219,8 +221,6 @@ function callback_createDevice(deviceObj, errorCode) {
             "Success: " + response.success + ". Error Code: " + response.code + ". " +
             "Status: " + response.status + ". Battery: " + response.battery
             + ". JobID: " + response.printjobid;
-        printer.disconnect();
-        printer.deleteDevice(printerdevice, deleted);
         alert(response);
     }
 }
