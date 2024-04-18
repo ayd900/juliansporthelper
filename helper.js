@@ -175,7 +175,7 @@ document.addEventListener("click", (e)=>{
 
 // PRINTER CODE
 
-console.log("version 12: image testing");
+console.log("version 13: image testing");
 
 const printer = new  epson.ePOSDevice();
 
