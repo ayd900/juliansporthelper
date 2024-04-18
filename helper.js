@@ -175,7 +175,7 @@ document.addEventListener("click", (e)=>{
 
 // PRINTER CODE
 
-console.log("version 13: image testing");
+console.log("version 14: image testing");
 
 const printer = new  epson.ePOSDevice();
 
@@ -317,7 +317,7 @@ document.getElementById("image").addEventListener("click", ()=>{
 printerdevice3 = null;
 
 function addImage() {
-    let image = document.getElementById("maillot1");
+    let image = document.querySelector("img");
     let canvas = document.querySelector("canvas");
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
