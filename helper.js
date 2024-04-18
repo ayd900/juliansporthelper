@@ -176,11 +176,11 @@ document.addEventListener("click", (e)=>{
 // PRINTER CODE
 
 const printer = new  epson.ePOSDevice();
-console.log(printer);
 
 const ipFirstAddress = "192.168.1.51";
 const ipSecondAddress = "192.168.1.60";
 const port = "8080";
+console.log("version3");
 
 printer.connect(ipFirstAddress, port, connected, true);
 
@@ -199,8 +199,6 @@ function connected(state) {
     }
 }
 
-console.log("version3");
-
 let printerdevice = null;
 
 function callback_createDevice(deviceObj, errorCode) {
@@ -209,11 +207,10 @@ function callback_createDevice(deviceObj, errorCode) {
         document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER: " + errorCode;
     }
     printerdevice = deviceObj;
-
+    createData();
     printerdevice.onreceive = function (response) {
         if (response.success) {
             document.getElementById("sucprint").innerText = "good print";
-            createData();
         } else {
             document.getElementById("sucprint").innerText = "failed print";
         }
@@ -231,7 +228,4 @@ function send() {
         printerdevice.send();
     }
 }
-
-createData();
-
 
