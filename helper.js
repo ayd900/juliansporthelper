@@ -193,6 +193,41 @@ document.getElementById("printCall2").addEventListener("click", ()=>{
     console.log("printer2 selected");
 })
 
+document.getElementById("test2").addEventListener("click", ()=>{
+    printer.connect(ipSecondAddress, port, connected2, true);
+})
+
+function connected2(state) {
+    const deviceId = "local_printer";
+    const options = {'crypto' : false, 'buffer' : false};
+    document.getElementById("state").innerText = state;
+    if (state === "OK" || state === "SSL_CONNECT_OK") {
+        printer.createDevice(deviceId, printer.DEVICE_TYPE_PRINTER, options, callback_createDevice2);
+    } else {
+        document.getElementById("state").innerText = state;
+    }
+}
+
+let printerdevice2 = null;
+
+function callback_createDevice2(deviceObj, errorCode) {
+    document.getElementById("extrainfo").innerText = "Device objecT: " + deviceObj + ". ErrorCode: " + errorCode;
+    if (deviceObj == null) {
+        document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER: " + errorCode;
+    } else {
+        printerdevice2 = deviceObj;
+        testData();
+        send2();
+    }
+
+    printerdevice2.onreceive = function (response) {
+        document.getElementById("sucprint").innerText =
+            "Success: " + response.success + ". Error Code: " + response.code + ". " +
+            "Status: " + response.status + ". Battery: " + response.battery
+            + ". JobID: " + response.printjobid;
+    }
+}
+
 function connected(state) {
     const deviceId = "local_printer";
     const options = {'crypto' : false, 'buffer' : false};
@@ -221,7 +256,6 @@ function callback_createDevice(deviceObj, errorCode) {
             "Success: " + response.success + ". Error Code: " + response.code + ". " +
             "Status: " + response.status + ". Battery: " + response.battery
             + ". JobID: " + response.printjobid;
-        alert(response);
     }
 }
 
@@ -236,16 +270,93 @@ function createData() {
     printerdevice.addFeedLine(1);
     printerdevice.addText("NUM: " + document.getElementById("num").value);
     printerdevice.addFeedLine(1);
-    printerdevice.addText("COLOR: " + document.getElementById("color").value);
+    printerdevice.addText("COLOR: " + document.querySelectorAll("[value='" + document.getElementById("color").value + "']")[0].innerText);
     printerdevice.addFeedLine(1);
     printerdevice.addText("POLICE: " + document.getElementById("font").value);
     printerdevice.addFeedLine(1);
     printerdevice.addText("TEL: " + document.getElementById("tel").value);
+    printerdevice.addFeedLine(1);
+}
+
+function testData() {
+    printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
+    printerdevice2.addTextSize(4,4);
+    printerdevice2.addText("JULIAN SPORT FLOCAGES\h");
+    printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
+    printerdevice2.addTextSize(2,2);
+    printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
+    printerdevice2.addText("NOM: " + document.getElementById("nom").value);
+    printerdevice2.addFeedLine(1);
+    printerdevice2.addText("NUM: " + document.getElementById("num").value);
+    printerdevice2.addFeedLine(1);
+    printerdevice2.addText("COLOR: " + document.querySelectorAll("[value='" + document.getElementById("color").value + "']")[0].innerText);
+    printerdevice2.addFeedLine(1);
+    printerdevice2.addText("POLICE: " + document.getElementById("font").value);
+    printerdevice2.addFeedLine(1);
+    printerdevice2.addText("TEL: " + document.getElementById("tel").value);
+    printerdevice2.addFeedLine(2);
+    printerdevice2.addCut(printerdevice2.CUT_FEED);
+}
+
+function send2() {
+    if (printer.isConnected) {
+        printerdevice2.send();
+    }
 }
 
 function send() {
     if (printer.isConnected) {
         printerdevice.send();
+    }
+}
+
+document.getElementById("image").addEventListener("click", ()=>{
+    printer.connect(ipSecondAddress, port, connected3, true);
+})
+
+printerdevice3 = null;
+
+function addImage() {
+    let image = document.getElementById("maillot1");
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.drawImage(
+        image,
+        0,0, 200, 200
+    );
+    printerdevice3.addPageBegin();
+    printerdevice3.addPageArea(0, 0, 300, 300);
+    printerdevice3.addPagePosition(0, 299);
+    printerdevice3.addImage(ctx, 0, 0, 300, 300);
+    printerdevice3.addPageEnd();
+}
+
+function connected3(state) {
+    const deviceId = "local_printer";
+    const options = {'crypto' : false, 'buffer' : false};
+    document.getElementById("state").innerText = state;
+    if (state === "OK" || state === "SSL_CONNECT_OK") {
+        printer.createDevice(deviceId, printer.DEVICE_TYPE_PRINTER, options, callback_createDevice3);
+    } else {
+        document.getElementById("state").innerText = state;
+    }
+}
+
+function callback_createDevice3(deviceObj, errorCode) {
+    document.getElementById("extrainfo").innerText = "Device objecT: " + deviceObj + ". ErrorCode: " + errorCode;
+    if (deviceObj == null) {
+        document.getElementById("deviceobj").innerText = "COULDNT RETRIEVE PRINTER: " + errorCode;
+    } else {
+        printerdevice3 = deviceObj;
+        addImage();
+        send2();
+    }
+
+    printerdevice3.onreceive = function (response) {
+        document.getElementById("sucprint").innerText =
+            "Success: " + response.success + ". Error Code: " + response.code + ". " +
+            "Status: " + response.status + ". Battery: " + response.battery
+            + ". JobID: " + response.printjobid;
     }
 }
 
