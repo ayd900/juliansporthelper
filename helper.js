@@ -189,7 +189,7 @@ document.getElementById("printCall").addEventListener("click", ()=>{
 })
 
 function connected(state) {
-    const deviceId = "local_printer";
+    const deviceId = "network_printer_0001";
     const options = {'crypto' : false, 'buffer' : false};
     document.getElementById("state").innerText = state;
     if (state === "OK" || state === "SSL_CONNECT_OK") {
