@@ -349,7 +349,7 @@ function callback_createDevice3(deviceObj, errorCode) {
     } else {
         printerdevice3 = deviceObj;
         addImage();
-        send2();
+        send3();
     }
 
     printerdevice3.onreceive = function (response) {
@@ -357,6 +357,12 @@ function callback_createDevice3(deviceObj, errorCode) {
             "Success: " + response.success + ". Error Code: " + response.code + ". " +
             "Status: " + response.status + ". Battery: " + response.battery
             + ". JobID: " + response.printjobid;
+    }
+}
+
+function send3() {
+    if (printer.isConnected) {
+        printerdevice3.send();
     }
 }
 
