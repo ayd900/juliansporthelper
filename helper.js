@@ -180,7 +180,7 @@ const printer = new  epson.ePOSDevice();
 const ipFirstAddress = "192.168.1.51";
 const ipSecondAddress = "192.168.1.60";
 const port = "8080";
-console.log("version3");
+console.log("version4");
 
 printer.connect(ipFirstAddress, port, connected, true);
 
