@@ -187,7 +187,7 @@ printer.connect(ipFirstAddress, port, connected, true);
 document.getElementById("printCall").addEventListener("click", ()=>{
     printer.connect(ipSecondAddress, port, connected, true);
 })
-
+console.log("version 2");
 function connected(state) {
     const deviceId = "local_printer";
     const options = {'crypto' : false, 'buffer' : false};
