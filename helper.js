@@ -282,8 +282,9 @@ function testData() {
     const date = new Date();
     const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' });
     const formatterd = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: '2-digit' });
-    const formattedTime = formatter.format(date);
+    let formattedTime = formatter.format(date);
     const formattedDate = formatterd.format(date);
+    formattedTime = formattedTime.substring(0,formattedTime.length - 1 - 3);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
     printerdevice2.addTextSize(3,3);
     printerdevice2.addText("JULIAN SPORT");
@@ -334,6 +335,7 @@ function addImage() {
         image,
         0,0, 600,600
     );
+    printerdevice3.addHLine(0, 100, printerdevice3.LINE_THICK);
     printerdevice3.addPageBegin();
     printerdevice3.addPageArea(0, 0, 1000, 1000);
     printerdevice3.addPagePosition(0, 0);
