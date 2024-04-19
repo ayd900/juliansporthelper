@@ -324,7 +324,7 @@ function addImage() {
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
         image,
-        0,0, 300, 300
+        0,0, 1200, 1200
     );
     printerdevice3.addPageBegin();
     printerdevice3.addPageArea(0, 0, 6000, 6000);
