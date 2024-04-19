@@ -280,8 +280,8 @@ function createData() {
 
 function testData() {
     const date = new Date();
-    const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    const formatterd = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit' });
+    const formatterd = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: '2-digit' });
     const formattedTime = formatter.format(date);
     const formattedDate = formatterd.format(date);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
@@ -290,9 +290,8 @@ function testData() {
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("FLOCAGES");
     printerdevice2.addFeedLine(3);
-    printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
-    printerdevice2.addText("Le " + formattedDate + " a " + formattedTime);
+    printerdevice2.addText("DATE: " + formattedDate + " " + formattedTime);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("NOM: " + document.getElementById("nom").value);
