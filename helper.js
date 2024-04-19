@@ -296,7 +296,7 @@ function testData() {
     printerdevice2.addText("DATE: " + formattedDate + " " + formattedTime);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addFeedLine(1);
-    printerdevice2.addText("NOM: " + document.getElementById("nom").value);
+    printerdevice2.addText("NOM: " + document.getElementById("nom").value.toUppercase());
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("NUM: " + document.getElementById("num").value);
     printerdevice2.addFeedLine(1);
