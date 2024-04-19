@@ -284,7 +284,7 @@ function testData() {
     const formatterd = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: '2-digit' });
     let formattedTime = formatter.format(date);
     const formattedDate = formatterd.format(date);
-    formattedTime = formattedTime.substring(0,formattedTime.length - 1 - 3);
+    formattedTime = formattedTime.substring(0,formattedTime.length - 3);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
     printerdevice2.addTextSize(3,3);
     printerdevice2.addText("JULIAN SPORT");
