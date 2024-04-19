@@ -280,8 +280,9 @@ function createData() {
 
 function testData() {
     printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
-    printerdevice2.addTextSize(4,4);
-    printerdevice2.addText("JULIAN SPORT FLOCAGES\h");
+    printerdevice2.addTextSize(3,3);
+    printerdevice2.addText("JULIAN SPORT");
+    printerdevice2.addText("FLOCAGES");
     printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
@@ -294,7 +295,7 @@ function testData() {
     printerdevice2.addText("POLICE: " + document.getElementById("font").value);
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("TEL: " + document.getElementById("tel").value);
-    printerdevice2.addFeedLine(2);
+    printerdevice2.addFeedLine(10);
     printerdevice2.addCut(printerdevice2.CUT_FEED);
 }
 
@@ -322,12 +323,12 @@ function addImage() {
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
         image,
-        0,0, 200, 200
+        0,0, 500, 500
     );
     printerdevice3.addPageBegin();
-    printerdevice3.addPageArea(0, 0, 300, 300);
-    printerdevice3.addPagePosition(0, 299);
-    printerdevice3.addImage(ctx, 0, 0, 300, 300);
+    printerdevice3.addPageArea(0, 0, 500, 500);
+    printerdevice3.addPagePosition(0, 500);
+    printerdevice3.addImage(ctx, 0, 0, 500, 500);
     printerdevice3.addPageEnd();
 }
 
