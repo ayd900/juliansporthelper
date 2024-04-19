@@ -324,13 +324,14 @@ function addImage() {
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
         image,
-        0,0, 1200, 1200
+        0,0, 300, 300
     );
     printerdevice3.addPageBegin();
     printerdevice3.addPageArea(0, 0, 6000, 6000);
     printerdevice3.addPagePosition(0, 0);
     printerdevice3.addImage(ctx, 0, 0, 6000, 6000);
     printerdevice3.addPageEnd();
+    printerdevice3.addCut(printerdevice3.CUT_FEED);
 }
 
 function connected3(state) {
