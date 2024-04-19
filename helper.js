@@ -279,6 +279,10 @@ function createData() {
 }
 
 function testData() {
+    const date = new Date();
+    const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const formattedTime = formatter.format(date);
+    const formattedDate = formatter.format(date);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
     printerdevice2.addTextSize(3,3);
     printerdevice2.addText("JULIAN SPORT");
@@ -287,7 +291,7 @@ function testData() {
     printerdevice2.addFeedLine(3);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
-    printerdevice2.addText("DATE: " + new Date());
+    printerdevice2.addText("le " + formattedDate + " a " + formattedTime);
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("NOM: " + document.getElementById("nom").value);
     printerdevice2.addFeedLine(1);
