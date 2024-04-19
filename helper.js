@@ -282,8 +282,9 @@ function testData() {
     printerdevice2.addTextAlign(printerdevice2.ALIGN_CENTER);
     printerdevice2.addTextSize(3,3);
     printerdevice2.addText("JULIAN SPORT");
+    printerdevice2.addFeedLine(1);
     printerdevice2.addText("FLOCAGES");
-    printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
+    printerdevice2.addFeedLine(1); printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
     printerdevice2.addText("NOM: " + document.getElementById("nom").value);
@@ -295,7 +296,7 @@ function testData() {
     printerdevice2.addText("POLICE: " + document.getElementById("font").value);
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("TEL: " + document.getElementById("tel").value);
-    printerdevice2.addFeedLine(10);
+    printerdevice2.addFeedLine(7);
     printerdevice2.addCut(printerdevice2.CUT_FEED);
 }
 
