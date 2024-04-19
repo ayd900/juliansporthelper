@@ -184,12 +184,12 @@ const ipFirstAddress = "192.168.1.60";
 const port = "8080";
 
 document.getElementById("printCall1").addEventListener("click", ()=>{
-    printer.connect(ipFirstAddress, port, connected, true);
+    printer.connect(ipFirstAddress, port, connected2, true);
     console.log("printer1 selected")
 })
 
 document.getElementById("printCall2").addEventListener("click", ()=>{
-    printer.connect(ipSecondAddress, port, connected, true);
+    printer.connect(ipSecondAddress, port, connected2, true);
     console.log("printer2 selected");
 })
 
@@ -284,9 +284,11 @@ function testData() {
     printerdevice2.addText("JULIAN SPORT");
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("FLOCAGES");
-    printerdevice2.addFeedLine(3); printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
+    printerdevice2.addFeedLine(3);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
+    printerdevice2.addText("DATE: " + new Date());
+    printerdevice2.addFeedLine(1);
     printerdevice2.addText("NOM: " + document.getElementById("nom").value);
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("NUM: " + document.getElementById("num").value);
@@ -327,9 +329,9 @@ function addImage() {
         0,0, 1200, 1200
     );
     printerdevice3.addPageBegin();
-    printerdevice3.addPageArea(0, 0, 6000, 6000);
+    printerdevice3.addPageArea(0, 0, 1200, 1200);
     printerdevice3.addPagePosition(0, 0);
-    printerdevice3.addImage(ctx, 0, 0, 6000, 6000);
+    printerdevice3.addImage(ctx, 0, 0, 1200, 1200);
     printerdevice3.addPageEnd();
     printerdevice3.addCut(printerdevice3.CUT_FEED);
 }
