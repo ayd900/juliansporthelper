@@ -292,7 +292,7 @@ function testData() {
     printerdevice2.addFeedLine(3);
     printerdevice2.addTextSize(1,1);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
-    printerdevice2.addText("le " + formattedDate + " a " + formattedTime);
+    printerdevice2.addText("Le " + formattedDate + " a " + formattedTime);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("NOM: " + document.getElementById("nom").value);
@@ -335,9 +335,9 @@ function addImage() {
         0,0, 1200, 1200
     );
     printerdevice3.addPageBegin();
-    printerdevice3.addPageArea(0, 0, 1200, 1200);
+    printerdevice3.addPageArea(0, 0, 3000, 3000);
     printerdevice3.addPagePosition(0, 0);
-    printerdevice3.addImage(ctx, 0, 0, 1200, 1200);
+    printerdevice3.addImage(ctx, 0, 0, 2999, 2999);
     printerdevice3.addPageEnd();
     printerdevice3.addCut(printerdevice3.CUT_FEED);
 }
