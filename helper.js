@@ -290,6 +290,7 @@ function testData() {
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("FLOCAGES");
     printerdevice2.addFeedLine(3);
+    printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
     printerdevice2.addText("DATE: " + formattedDate + " " + formattedTime);
     printerdevice2.addTextSize(2,2);
