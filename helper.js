@@ -328,7 +328,7 @@ function addImage() {
     );
     printerdevice3.addPageBegin();
     printerdevice3.addPageArea(0, 0, 400, 400);
-    printerdevice3.addPagePosition(0, 400);
+    printerdevice3.addPagePosition(0, 0);
     printerdevice3.addImage(ctx, 0, 0, 400, 400);
     printerdevice3.addPageEnd();
 }
