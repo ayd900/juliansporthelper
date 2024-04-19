@@ -284,7 +284,7 @@ function testData() {
     printerdevice2.addText("JULIAN SPORT");
     printerdevice2.addFeedLine(1);
     printerdevice2.addText("FLOCAGES");
-    printerdevice2.addFeedLine(1); printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
+    printerdevice2.addFeedLine(3); printerdevice2.addHLine(0,65535,printerdevice2.LINE_MEDIUM_DOUBLE);
     printerdevice2.addTextSize(2,2);
     printerdevice2.addTextAlign(printerdevice2.ALIGN_LEFT);
     printerdevice2.addText("NOM: " + document.getElementById("nom").value);
@@ -324,12 +324,12 @@ function addImage() {
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
         image,
-        0,0, 500, 500
+        0,0, 400, 400
     );
     printerdevice3.addPageBegin();
-    printerdevice3.addPageArea(0, 0, 500, 500);
-    printerdevice3.addPagePosition(0, 500);
-    printerdevice3.addImage(ctx, 0, 0, 500, 500);
+    printerdevice3.addPageArea(0, 0, 400, 400);
+    printerdevice3.addPagePosition(0, 400);
+    printerdevice3.addImage(ctx, 0, 0, 400, 400);
     printerdevice3.addPageEnd();
 }
 
