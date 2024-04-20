@@ -310,12 +310,12 @@ function addImage() {
     let canvas = document.querySelector("canvas");
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
-        image,0,0,1200,1200
+        image,0,0,500,500
     );
     printerdevice3.addPageBegin();
-    printerdevice3.addPageArea(0, 0, 1200, 1200);
+    printerdevice3.addPageArea(0, 0, 500, 500);
     printerdevice3.addPagePosition(0, 0);
-    printerdevice3.addImage(ctx, 0, 0, 700, 700);
+    printerdevice3.addImage(ctx, 0, 0, 499, 499);
     printerdevice3.addPageEnd();
     printerdevice3.addCut(printerdevice3.CUT_FEED);
 }
