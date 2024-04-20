@@ -338,6 +338,7 @@ function callback_createDevice3(deviceObj, errorCode) {
     } else {
         printerdevice3 = deviceObj;
         addImage();
+        send3();
     }
 
     printerdevice3.onreceive = function (response) {
