@@ -151,28 +151,6 @@ document.getElementById("switchoutlet").addEventListener("click", ()=>{
     document.getElementById("js-outlet").style.display = "block";
 });
 
-document.addEventListener("click", (e)=>{
-    let numInput = document.getElementById("num");
-    let nomInput = document.getElementById("nom");
-    if (e.target !== numInput &&
-        e.target !== nomInput &&
-        e.target !== maillotSelect &&
-        e.target !== colorSelect &&
-        e.target !== fontSelect &&
-        e.target !== document.getElementById("prefix") &&
-        e.target !== document.getElementById("tel") &&
-        e.target !== document.getElementById("switchoutlet") &&
-        e.target !== document.getElementById("switchflock") &&
-        e.target !== document.querySelectorAll("img")[0] &&
-        e.target !== document.querySelectorAll("img")[1] &&
-        e.target !== document.getElementById("firstContainer") &&
-        e.target !== document.getElementById("secondContainer") &&
-        document.getElementById("nom").value.length > 0 &&
-        document.getElementById("num").value.length > 0) {
-        updateMaillot();
-    }
-})
-
 // PRINTER CODE
 
 console.log("version 15: tomorrow will test");
@@ -333,13 +311,12 @@ function addImage() {
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
         image,
-        0,0, 1200, 1200
+        0,0, 700,700
     );
-    printerdevice3.addHLine(0, 100, printerdevice3.LINE_THICK);
     printerdevice3.addPageBegin();
     printerdevice3.addPageArea(0, 0, 1200, 1200);
     printerdevice3.addPagePosition(0, 0);
-    printerdevice3.addImage(ctx, 0, 0, 1200, 1200);
+    printerdevice3.addImage(ctx, 0, 0, 700, 700);
     printerdevice3.addPageEnd();
     printerdevice3.addCut(printerdevice3.CUT_FEED);
 }
