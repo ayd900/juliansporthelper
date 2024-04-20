@@ -310,8 +310,7 @@ function addImage() {
     let canvas = document.querySelector("canvas");
     let ctx = canvas.getContext("2d");
     ctx.drawImage(
-        image,
-        0,0, 700,700
+        image,0,0,1200,1200
     );
     printerdevice3.addPageBegin();
     printerdevice3.addPageArea(0, 0, 1200, 1200);
@@ -339,7 +338,6 @@ function callback_createDevice3(deviceObj, errorCode) {
     } else {
         printerdevice3 = deviceObj;
         addImage();
-        send3();
     }
 
     printerdevice3.onreceive = function (response) {
