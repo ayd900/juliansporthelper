@@ -2,11 +2,6 @@
     display: none;
 }
 
-canvas {
-    height: 1200px;
-    width: 1200px;
-}
-
 .container {
     display: flex;
     flex-direction: row;
